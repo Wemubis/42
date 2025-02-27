@@ -1,0 +1,70 @@
+NAME = minishell
+
+D_HDRS = ./includes/
+D_SRCS = srcs/
+
+CC = cc
+RM = rm -f
+
+###------------------------------ FLAG
+CFLAGS = -Wall -Wextra -Werror -g3
+DEPFLAGS = -MMD -MP $(foreach F, $(D_HDRS),-I$(F))
+
+###------------------------------ DIRS
+DIR_BUILTIN = $(addprefix $(D_SRCS), builtin/)
+DIR_ENVP = $(addprefix $(D_SRCS), envp/)
+DIR_EXEC = $(addprefix $(D_SRCS), exec/)
+DIR_PARSING = $(addprefix $(D_SRCS), parsing/)
+
+###------------------------------ SRCS
+MAIN = main.c free_stuff.c \
+
+BUILTIN = cd.c echo.c env.c exit.c export.c pwd.c unset.c \
+
+ENVP = dup_env.c \
+
+EXEC = exec_cmd.c \
+
+PARSING = command_lst.c command_lst_2.c index.c meta_char.c \
+		outfile.c parsing.c quotes.c split_line.c \
+
+###------------------------------ DIRS + SRCS
+SRCS_1 = $(addprefix $(DIR_BUILTIN), $(BUILTIN))
+SRCS_2 = $(addprefix $(DIR_ENVP), $(ENVP))
+SRCS_3 = $(addprefix $(DIR_EXEC), $(EXEC))
+SRCS_4 = $(addprefix $(DIR_PARSING), $(PARSING))
+SRCS_5 = $(addprefix $(D_SRCS), $(MAIN))
+SRCS = $(SRCS_1) $(SRCS_2) $(SRCS_3) $(SRCS_4) $(SRCS_5)
+
+###------------------------------ OBJS + DEP
+OBJS = $(patsubst %.c, %.o, $(SRCS))
+DEPS = $(patsubst %.c, %.d, $(SRCS))
+
+###------------------------------ PHONY
+.PHONY: all clean fclean re lib $(NAME)
+
+###------------------------------ RULES
+all: lib $(NAME)
+
+
+$(NAME): $(OBJS) libft/libft.a
+	$(CC) $^ -o $@
+
+lib:
+	@make -C libft --no-print-directory
+
+-include $(DEPS)
+
+%.o: %.c
+	$(CC) $(CFLAGS) $(DEPFLAGS) -c $< -o $@
+
+clean:
+	@make -C libft clean
+	$(RM) $(OBJS) $(DEPS)
+
+
+fclean: clean
+	$(RM) libft/libft.a
+	$(RM) $(NAME)
+
+re: fclean all
