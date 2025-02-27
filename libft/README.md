@@ -1,100 +1,99 @@
-# Libft - Projet École 42
+# Libft - 42 School Project
 
-Le projet Libft à l'École 42 vise à créer une bibliothèque de fonctions standard en langage C, ainsi que des fonctionnalités bonus, pour consolider les compétences de programmation en C. Cette bibliothèque devient une ressource essentielle pour les projets ultérieurs au sein de l'école.
+The Libft project at 42 School aims to create a standard library of functions in the C programming language, along with bonus functionalities, to strengthen C programming skills. This library becomes an essential resource for later projects within the school.
 
 <br>
 
 ## Description
 
-La bibliothèque Libft propose une variété de fonctions standard en C, équivalentes à celles de la bibliothèque standard. Ces fonctions incluent la manipulation de chaînes de caractères, la gestion de la mémoire, les opérations sur les caractères, et bien plus encore. La conception de ces fonctions permet de comprendre en profondeur leur fonctionnement, renforçant ainsi les bases en programmation.
+The Libft library offers a variety of standard C functions, equivalent to those in the standard library. These functions include string manipulation, memory management, character operations, and much more. The design of these functions allows for a deep understanding of how they work, thus reinforcing the fundamentals of programming.
 
 <br>
 
-## Fonctions de Base
+## Basic Functions
 
-### 1. Chaînes de Caractères (`ft_str`)
+### 1. Strings (`ft_str`)
 
-Les fonctions de manipulation de chaînes de caractères incluent des opérations comme la copie, la concaténation, la recherche et la comparaison. Elles facilitent la gestion de chaînes de caractères en C.
+String manipulation functions include operations such as copying, concatenation, searching, and comparison. They simplify the handling of strings in C.
 
-- **ft_strlen** : Calcule la longueur d'une chaîne de caractères.
-- **ft_strcpy** : Copie une chaîne dans une autre.
-- **ft_strcat** : Concatène deux chaînes.
-- **ft_strcmp** : Compare deux chaînes de caractères.
+- **ft_strlen**: Calculates the length of a string.
+- **ft_strcpy**: Copies one string into another.
+- **ft_strcat**: Concatenates two strings.
+- **ft_strcmp**: Compares two strings.
 - ...
 
-### 2. Mémoire (`ft_mem`)
+### 2. Memory (`ft_mem`)
 
-Les fonctions de manipulation de la mémoire offrent des outils pour allouer et libérer la mémoire, ainsi que pour manipuler son contenu.
+Memory manipulation functions provide tools to allocate and free memory, as well as to manipulate its contents.
 
-- **ft_memset** : Remplit une zone de mémoire avec une valeur spécifique.
-- **ft_memcpy** : Copie une zone de mémoire d'une source à une destination.
+- **ft_memset**: Fills a memory area with a specific value.
+- **ft_memcpy**: Copies a memory area from a source to a destination.
 - ...
 
-### 3. Caractères (`ft_char`)
+### 3. Characters (`ft_char`)
 
-Les opérations sur les caractères comprennent la conversion entre majuscules et minuscules, la vérification de la catégorie d'un caractère, etc.
+Character operations include converting between uppercase and lowercase, checking a character's category, etc.
 
-- **ft_isalpha** : Vérifie si un caractère est une lettre.
-- **ft_isdigit** : Vérifie si un caractère est un chiffre.
-- **ft_tolower** : Convertit une lettre en minuscule.
+- **ft_isalpha**: Checks if a character is a letter.
+- **ft_isdigit**: Checks if a character is a digit.
+- **ft_tolower**: Converts a letter to lowercase.
 - ...
 
 <br>
 
-## Fonctionnalités Bonus
+## Bonus Features
 
-### 1. Listes Chaînées (`ft_lst`)
+### 1. Linked Lists (`ft_lst`)
 
-Les listes chaînées sont des structures de données dynamiques qui permettent de stocker et d'organiser des données de manière flexible. La bibliothèque Libft propose des fonctions pour manipuler ces structures.
+Linked lists are dynamic data structures that allow for the flexible storage and organization of data. The Libft library provides functions to manipulate these structures.
 
-- **ft_lstnew** : Crée un nouvel élément de liste.
-- **ft_lstadd_front** : Ajoute un élément au début de la liste.
-- **ft_lstsize** : Donne la taille de la liste.
+- **ft_lstnew**: Creates a new list element.
+- **ft_lstadd_front**: Adds an element to the front of the list.
+- **ft_lstsize**: Returns the size of the list.
 - ...
 
 ### 2. ft_printf
 
-La fonction ft_printf est une version personnalisée de la fonction printf en C, avec des spécificateurs de format étendus et la possibilité de modifier la couleur lors de l'affichage.
+The ft_printf function is a customized version of the printf function in C, with extended format specifiers and the ability to modify the color when displaying.
 
 ```c
-ft_printf("%sNombre : %d, Chaîne : %s%s\n", CYAN, 42, "libft", COLOR_OFF);
+ft_printf("%sNumber: %d, String: %s%s\n", CYAN, 42, "libft", COLOR_OFF);
 ```
 
-Les couleurs disponibles sont : `BLACK`, `RED`, `GREEN`, `YELLOW`, `BLUE`, `PURPLE`, `CYAN`, `WHITE`, `COLOR_OFF`.
+The available colors are: `BLACK`, `RED`, `GREEN`, `YELLOW`, `BLUE`, `PURPLE`, `CYAN`, `WHITE`, `COLOR_OFF`.
 
 <br>
 
-## Utilisation
+## Usage
 
-
-### 1. Clonez le Dépôt :
+### 1. Clone the Repository:
 
 ```bash
 git clone https://github.com/Wemubis/Libft.git
 ```
 
-### 2. Compilation de la bibliothèque :
+### 2. Compile the Library:
 
 ```bash
 make
 ```
 
-### 3. Exemples
-Voici quelques exemples d'utilisation de la bibliothèque Libft :
+### 3. Examples
+Here are some examples of using the Libft library:
 
 ```c
 #include "libft.h"
 
 int main() {
-    // Utilisation de fonctions standard
+    // Using standard functions
     ft_putstr("Hello, World!\n");
 
-    // Utilisation de fonctions bonus (listes chaînées)
+    // Using bonus functions (linked lists)
     t_list *list = ft_lstnew("42");
-    ft_lstadd_front(&list, ft_lstnew("Ecole"));
+    ft_lstadd_front(&list, ft_lstnew("School"));
 
-    // Utilisation de ft_printf avec couleur
-    ft_printf("%sNombre : %d, Chaîne : %s%s\n", CYAN, 42, "libft", COLOR_OFF);
+    // Using ft_printf with color
+    ft_printf("%sNumber: %d, String: %s%s\n", CYAN, 42, "libft", COLOR_OFF);
 
     return 0;
 }
