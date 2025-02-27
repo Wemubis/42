@@ -66,19 +66,13 @@ The available colors are: `BLACK`, `RED`, `GREEN`, `YELLOW`, `BLUE`, `PURPLE`, `
 
 ## Usage
 
-### 1. Clone the Repository:
-
-```bash
-git clone https://github.com/Wemubis/Libft.git
-```
-
-### 2. Compile the Library:
+### 1. Compile the Library:
 
 ```bash
 make
 ```
 
-### 3. Examples
+### 2. Examples
 Here are some examples of using the Libft library:
 
 ```c
